@@ -10,7 +10,7 @@ import (
 )
 
 var rootCmd = &cobra.Command{
-	Use:     "hmk",
+	Use:     "cdrawer",
 	Version: "0.0.1",
 	Short:   "Cash Drawer CLI",
 	Long:    `Cash Drawer CLI is a command line interface for the Cash Drawer.`,
