@@ -1,7 +1,3 @@
-/*
-Copyright © 2022 NAME HERE <EMAIL ADDRESS>
-
-*/
 package main
 
 import (
@@ -28,7 +24,6 @@ func main() {
 
 	defer port.Close()
 
-	// Write 4 bytes to the port.
 	b := []byte{0x0c, 0x01, 0x02, 0x03, 0x04, 0x00, 0x00, 0x00}
 	n, err := port.Write(b)
 	if err != nil {
