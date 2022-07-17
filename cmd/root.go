@@ -1,7 +1,3 @@
-/*
-Copyright © 2022 NAME HERE <EMAIL ADDRESS>
-
-*/
 package cmd
 
 import (
@@ -21,16 +17,8 @@ var rootCmd = &cobra.Command{
 	// Run: func(cmd *cobra.Command, args []string) { },
 }
 
-var rootCmd2 = &cobra.Command{
-	Use:     "hmk2",
-	Version: "0.0.1",
-	Short:   "Cash Drawer CLI",
-	Long:    `Cash Drawer CLI is a command line interface for the Cash Drawer.`,
-	// Run: func(cmd *cobra.Command, args []string) { },
-}
-
 func Execute() {
-	err := rootCmd2.Execute()
+	err := rootCmd.Execute()
 	if err != nil {
 		os.Exit(1)
 	}
