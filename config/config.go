@@ -12,7 +12,6 @@ var B, _ = cfg.Section("").Key("BaudRate").Uint()
 var D, _ = cfg.Section("").Key("DataBits").Uint()
 var S, _ = cfg.Section("").Key("StopBits").Uint()
 
-// fmt.Println("PortName:", P, "BaudRate:", B, "DataBits:", D, "StopBits:", S)
 
 // Here you can edit your configurations, you can also make new configurations and apply it to any of the command, just by changing the name of var <Options> in your cmd files.
 var Options = serial.OpenOptions{
