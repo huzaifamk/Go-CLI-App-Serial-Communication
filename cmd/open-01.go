@@ -12,7 +12,7 @@ import (
 // openCmd represents the open command
 var open01Cmd = &cobra.Command{
 	Use:                   "open-70316363",
-	Short:                 "cdrawer open 70316363 - Open Cash Drawer at 1B 70 31 63 63 00 00 00",
+	Short:                 "cdrawer open-70316363 - Open Cash Drawer at 1B 70 31 63 63 00 00 00",
 	DisableFlagsInUseLine: true,
 	Run: func(cmd *cobra.Command, args []string) {
 		data2, err := hex.DecodeString("70316363")
