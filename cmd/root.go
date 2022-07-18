@@ -6,15 +6,16 @@ import (
 	"github.com/spf13/cobra"
 )
 
+// rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:               "cdrawer",
 	Version:           "1.0.0",
 	Short:             "Cash Drawer CLI",
 	Long:              `Cash Drawer CLI is a command line interface for the Cash Drawer.`,
 	CompletionOptions: cobra.CompletionOptions{DisableDefaultCmd: true},
-	// Run: func(cmd *cobra.Command, args []string) { },
 }
 
+// Execute adds all child commands to the root command and sets flags appropriately.
 func Execute() {
 	err := rootCmd.Execute()
 	if err != nil {
@@ -22,33 +23,13 @@ func Execute() {
 	}
 }
 
+// init is called after packages' init functions have been called.
 func init() {
-	// rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.cdrawer.yaml)")
 	cobra.OnInitialize(initConfig)
 	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
 
+// initConfig reads in config file and ENV variables if set.
 func initConfig() {
-	// options := serial.OpenOptions{
-	// 	PortName:   "COM1",
-	// 	BaudRate:   9600,
-	// 	DataBits:   8,
-	// 	StopBits:   1,
-	// 	ParityMode: serial.PARITY_NONE,
-	// }
 
-	// port, err := serial.Open(options)
-	// if err != nil {
-	// 	log.Fatalf("serial.Open: %v", err)
-	// }
-
-	// defer port.Close()
-
-	// b := []byte{0x0c, 0x01, 0x02, 0x03, 0x04, 0x00, 0x00, 0x00}
-	// n, err := port.Write(b)
-	// if err != nil {
-	// 	log.Fatalf("port.Write: %v", err)
-	// }
-
-	// fmt.Println("Wrote", n, "bytes.")
 }

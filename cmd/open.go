@@ -11,6 +11,7 @@ import (
 
 var port string
 
+// openCmd represents the open command
 var openCmd = &cobra.Command{
 	Use:   "open 1234",
 	Short: "Open Cash Drawer on specific serial port",
@@ -57,6 +58,7 @@ var openCmd = &cobra.Command{
 	},
 }
 
+// init is called after packages' init functions have been called.
 func init() {
 	rootCmd.AddCommand(openCmd)
 	openCmd.PersistentFlags().StringVarP(&port, "port", "p", "COM1", "serial port")
