@@ -15,7 +15,11 @@ var port string
 
 // openCmd represents the open command
 var openCmd = &cobra.Command{
+<<<<<<< HEAD
 	Use:   "open-01020304",
+=======
+	Use:   "open-1234",
+>>>>>>> 6648d9f2dba4b316d4a35d1f4e6a0c8111bad3c9
 	Short: "cdrawer open-01020304 - Open Cash Drawer at 0C 01 02 03 04 00 00 00 ",
 	Run: func(cmd *cobra.Command, args []string) {
 		data, err := hex.DecodeString("01020304")
