@@ -12,7 +12,7 @@ import (
 // openCmd represents the open command
 var open02Cmd = &cobra.Command{
 	Use:                   "open-70306363",
-	Short:                 "cdrawer open 70306363 - Open Cash Drawer after converting string to bytes at COM1",
+	Short:                 "cdrawer open 70306363 - Open Cash Drawer at 1B 70 30 63 63 00 00 00",
 	DisableFlagsInUseLine: true,
 	Run: func(cmd *cobra.Command, args []string) {
 		data1, err := hex.DecodeString("70306363")
@@ -21,7 +21,7 @@ var open02Cmd = &cobra.Command{
 		}
 		fmt.Printf("Conversion to Bytes successful: ")
 		fmt.Printf("% x \n", data1)
-		// fmt.Println("Configuring Port: ", port)
+		fmt.Println("Configuring Port: ", port)
 		fmt.Println("The drawer is opening...")
 
 		options := serial.OpenOptions{
@@ -46,7 +46,7 @@ var open02Cmd = &cobra.Command{
 
 		defer port.Close()
 
-		b := []byte{0x1b, 0x70, 0x31, 0x63, 0x63, 0x00, 0x00, 0x00}
+		b := []byte{0x1b, 0x70, 0x30, 0x63, 0x63, 0x00, 0x00, 0x00}
 		n, err := port.Write(b)
 		if err != nil {
 			log.Fatalf("port.Write: %v", err)
