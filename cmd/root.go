@@ -1,11 +1,8 @@
 package cmd
 
 import (
-	"fmt"
-	"log"
 	"os"
 
-	"github.com/jacobsa/go-serial/serial"
 	"github.com/spf13/cobra"
 )
 
@@ -31,26 +28,26 @@ func init() {
 }
 
 func initConfig() {
-	options := serial.OpenOptions{
-		PortName:   "COM1",
-		BaudRate:   9600,
-		DataBits:   8,
-		StopBits:   1,
-		ParityMode: serial.PARITY_NONE,
-	}
+	// options := serial.OpenOptions{
+	// 	PortName:   "COM1",
+	// 	BaudRate:   9600,
+	// 	DataBits:   8,
+	// 	StopBits:   1,
+	// 	ParityMode: serial.PARITY_NONE,
+	// }
 
-	port, err := serial.Open(options)
-	if err != nil {
-		log.Fatalf("serial.Open: %v", err)
-	}
+	// port, err := serial.Open(options)
+	// if err != nil {
+	// 	log.Fatalf("serial.Open: %v", err)
+	// }
 
-	defer port.Close()
+	// defer port.Close()
 
-	b := []byte{0x0c, 0x01, 0x02, 0x03, 0x04, 0x00, 0x00, 0x00}
-	n, err := port.Write(b)
-	if err != nil {
-		log.Fatalf("port.Write: %v", err)
-	}
+	// b := []byte{0x0c, 0x01, 0x02, 0x03, 0x04, 0x00, 0x00, 0x00}
+	// n, err := port.Write(b)
+	// if err != nil {
+	// 	log.Fatalf("port.Write: %v", err)
+	// }
 
-	fmt.Println("Wrote", n, "bytes.")
+	// fmt.Println("Wrote", n, "bytes.")
 }
