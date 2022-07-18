@@ -9,20 +9,19 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var port string
-
 // openCmd represents the open command
-var openCmd = &cobra.Command{
-	Use:   "open-1234",
-	Short: "cdrawer open 1234     - Open Cash Drawer after converting string to bytes at COM1",
+var open02Cmd = &cobra.Command{
+	Use:                   "open-70306363",
+	Short:                 "cdrawer open 70306363 - Open Cash Drawer after converting string to bytes at COM1",
+	DisableFlagsInUseLine: true,
 	Run: func(cmd *cobra.Command, args []string) {
-		data, err := hex.DecodeString("01020304")
+		data1, err := hex.DecodeString("70306363")
 		if err != nil {
 			panic(err)
 		}
 		fmt.Printf("Conversion to Bytes successful: ")
-		fmt.Printf("% x \n", data)
-		fmt.Println("Configuring Port: ", port)
+		fmt.Printf("% x \n", data1)
+		// fmt.Println("Configuring Port: ", port)
 		fmt.Println("The drawer is opening...")
 
 		options := serial.OpenOptions{
@@ -47,7 +46,7 @@ var openCmd = &cobra.Command{
 
 		defer port.Close()
 
-		b := []byte{0x0c, 0x01, 0x02, 0x03, 0x04, 0x00, 0x00, 0x00}
+		b := []byte{0x1b, 0x70, 0x31, 0x63, 0x63, 0x00, 0x00, 0x00}
 		n, err := port.Write(b)
 		if err != nil {
 			log.Fatalf("port.Write: %v", err)
@@ -58,10 +57,8 @@ var openCmd = &cobra.Command{
 	},
 }
 
-// init is called after packages' init functions have been called.
-func init() {
-	rootCmd.AddCommand(openCmd)
-	rootCmd.AddCommand(open01Cmd)
-	rootCmd.AddCommand(open02Cmd)
-	openCmd.PersistentFlags().StringVarP(&port, "port", "p", "COM1", "serial port")
-}
+// // init is called after packages' init functions have been called.
+// func init() {
+// 	openCmd.AddCommand(open02Cmd)
+// 	open02Cmd.PersistentFlags().StringVarP(&port, "port", "p", "COM1", "serial port")
+// }
