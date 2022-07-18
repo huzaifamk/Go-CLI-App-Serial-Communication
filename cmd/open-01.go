@@ -52,8 +52,3 @@ var open01Cmd = &cobra.Command{
 
 	},
 }
-
-// // i
-// func init() {
-// 	rootCmd.AddCommand(open01Cmd)
-// 	open01Cmd.PersistentFlags().StringVarP(&port, "port", "p", "COM1", "serial port")
