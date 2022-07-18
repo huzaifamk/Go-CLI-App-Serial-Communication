@@ -10,7 +10,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// openCmd represents the open command
+// open01Cmd represents the open command for cdrawer open-70316363
 var open01Cmd = &cobra.Command{
 	Use:                   "open-70316363",
 	Short:                 "cdrawer open-70316363 - Open Cash Drawer at 1B 70 31 63 63 00 00 00",
@@ -25,6 +25,7 @@ var open01Cmd = &cobra.Command{
 		fmt.Println("Configuring Port: ", port)
 		fmt.Println("The drawer is opening...")
 
+		// Here you can change the configrations, just change the c := config.<Options> in the code below, You can use Options2 if you want to or Options3 as well but you also have to make it in config file, just copy paste the code of Options and change the name of <Options> to <Options3>, thats it :)
 		c := config.Options
 
 		fmt.Println("The configurations for your drawer are:")
