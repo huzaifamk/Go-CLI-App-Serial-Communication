@@ -2,8 +2,8 @@ package config
 
 import "github.com/jacobsa/go-serial/serial"
 
- var Options = serial.OpenOptions{
-	PortName:   "COM123",
+var Options = serial.OpenOptions{
+	PortName:   "COM1",
 	BaudRate:   9600,
 	DataBits:   8,
 	StopBits:   1,
