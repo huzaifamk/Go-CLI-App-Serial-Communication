@@ -53,7 +53,7 @@ var open01Cmd = &cobra.Command{
 	},
 }
 
-// // init is called after packages' init functions have been called.
+// // init is called after packages' init functions have been call
 // func init() {
 // 	rootCmd.AddCommand(open01Cmd)
 // 	open01Cmd.PersistentFlags().StringVarP(&port, "port", "p", "COM1", "serial port")
