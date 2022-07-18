@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"log"
 
+	config "cdrawer/config"
+
 	"github.com/jacobsa/go-serial/serial"
 	"github.com/spf13/cobra"
 )
@@ -13,8 +15,8 @@ var port string
 
 // openCmd represents the open command
 var openCmd = &cobra.Command{
-	Use:   "open-1234",
-	Short: "cdrawer open-01020304     - Open Cash Drawer at 0C 01 02 03 04 00 00 00 ",
+	Use:   "open-01020304",
+	Short: "cdrawer open-01020304 - Open Cash Drawer at 0C 01 02 03 04 00 00 00 ",
 	Run: func(cmd *cobra.Command, args []string) {
 		data, err := hex.DecodeString("01020304")
 		if err != nil {
@@ -25,22 +27,16 @@ var openCmd = &cobra.Command{
 		fmt.Println("Configuring Port: ", port)
 		fmt.Println("The drawer is opening...")
 
-		options := serial.OpenOptions{
-			PortName:   "COM1",
-			BaudRate:   9600,
-			DataBits:   8,
-			StopBits:   1,
-			ParityMode: serial.PARITY_NONE,
-		}
+		c := config.Options
 
 		fmt.Println("The configurations for your drawer are:")
-		fmt.Println("Port Name: ", options.PortName)
-		fmt.Println("Baud Rate: ", options.BaudRate)
-		fmt.Println("Data Bits: ", options.DataBits)
-		fmt.Println("Stop Bits: ", options.StopBits)
-		fmt.Println("Parity Mode: ", options.ParityMode)
+		fmt.Println("Port Name: ", c.PortName)
+		fmt.Println("Baud Rate: ", c.BaudRate)
+		fmt.Println("Data Bits: ", c.DataBits)
+		fmt.Println("Stop Bits: ", c.StopBits)
+		fmt.Println("Parity Mode: ", c.ParityMode)
 
-		port, err := serial.Open(options)
+		port, err := serial.Open(c)
 		if err != nil {
 			log.Fatalf("serial.Open: %v", err)
 		}

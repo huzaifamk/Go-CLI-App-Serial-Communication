@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	config "cdrawer/config"
 	"encoding/hex"
 	"fmt"
 	"log"
@@ -24,22 +25,16 @@ var open01Cmd = &cobra.Command{
 		fmt.Println("Configuring Port: ", port)
 		fmt.Println("The drawer is opening...")
 
-		options := serial.OpenOptions{
-			PortName:   "COM1",
-			BaudRate:   9600,
-			DataBits:   8,
-			StopBits:   1,
-			ParityMode: serial.PARITY_NONE,
-		}
+		c := config.Options
 
 		fmt.Println("The configurations for your drawer are:")
-		fmt.Println("Port Name: ", options.PortName)
-		fmt.Println("Baud Rate: ", options.BaudRate)
-		fmt.Println("Data Bits: ", options.DataBits)
-		fmt.Println("Stop Bits: ", options.StopBits)
-		fmt.Println("Parity Mode: ", options.ParityMode)
+		fmt.Println("Port Name: ", c.PortName)
+		fmt.Println("Baud Rate: ", c.BaudRate)
+		fmt.Println("Data Bits: ", c.DataBits)
+		fmt.Println("Stop Bits: ", c.StopBits)
+		fmt.Println("Parity Mode: ", c.ParityMode)
 
-		port, err := serial.Open(options)
+		port, err := serial.Open(c)
 		if err != nil {
 			log.Fatalf("serial.Open: %v", err)
 		}
