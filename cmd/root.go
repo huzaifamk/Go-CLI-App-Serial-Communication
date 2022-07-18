@@ -7,10 +7,11 @@ import (
 )
 
 var rootCmd = &cobra.Command{
-	Use:     "cdrawer",
-	Version: "0.0.1",
-	Short:   "Cash Drawer CLI",
-	Long:    `Cash Drawer CLI is a command line interface for the Cash Drawer.`,
+	Use:               "cdrawer",
+	Version:           "1.0.0",
+	Short:             "Cash Drawer CLI",
+	Long:              `Cash Drawer CLI is a command line interface for the Cash Drawer.`,
+	CompletionOptions: cobra.CompletionOptions{DisableDefaultCmd: true},
 	// Run: func(cmd *cobra.Command, args []string) { },
 }
 
