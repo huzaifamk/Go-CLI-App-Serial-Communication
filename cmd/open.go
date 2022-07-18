@@ -21,7 +21,7 @@ var openCmd = &cobra.Command{
 		}
 		fmt.Printf("Conversion to Bytes successful: ")
 		fmt.Printf("% x \n", data)
-		fmt.Println("Opening the port: ", port)
+		fmt.Println("Configuring Port: ", port)
 		fmt.Println("The drawer is opening...")
 
 		options := serial.OpenOptions{
@@ -31,6 +31,13 @@ var openCmd = &cobra.Command{
 			StopBits:   1,
 			ParityMode: serial.PARITY_NONE,
 		}
+
+		fmt.Println("The configurations for your drawer are:")
+		fmt.Println("Port Name: ", options.PortName)
+		fmt.Println("Baud Rate: ", options.BaudRate)
+		fmt.Println("Data Bits: ", options.DataBits)
+		fmt.Println("Stop Bits: ", options.StopBits)
+		fmt.Println("Parity Mode: ", options.ParityMode)
 
 		port, err := serial.Open(options)
 		if err != nil {
