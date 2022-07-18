@@ -15,10 +15,10 @@ var port string
 
 // openCmd represents the open command
 var openCmd = &cobra.Command{
-	Use:   "open-01020304",
-	Short: "cdrawer open-01020304 - Open Cash Drawer at 0C 01 02 03 04 00 00 00 ",
+	Use:   "open-11223344",
+	Short: "cdrawer open-11223344 - Open Cash Drawer at 0C 11 22 33 44 C4 00 00 ",
 	Run: func(cmd *cobra.Command, args []string) {
-		data, err := hex.DecodeString("01020304")
+		data, err := hex.DecodeString("11223344")
 		if err != nil {
 			panic(err)
 		}
@@ -44,7 +44,7 @@ var openCmd = &cobra.Command{
 
 		defer port.Close()
 
-		b := []byte{0x0c, 0x01, 0x02, 0x03, 0x04, 0x00, 0x00, 0x00}
+		b := []byte{0x0c, 0x11, 0x22, 0x33, 0x44, 0xc4, 0x00, 0x00}
 		n, err := port.Write(b)
 		if err != nil {
 			log.Fatalf("port.Write: %v", err)
